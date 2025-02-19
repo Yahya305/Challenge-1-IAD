@@ -1,0 +1,133 @@
+.quiz-main {
+    height: calc(100vh - 485px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(130deg, #231a6f, #0f054c);
+    /* background-color: #00204a; */
+}
+.quiz-wrapper {
+    width: 600px;
+}
+
+h1 {
+    text-align: center;
+    color: white; /* Green accent for headings */
+    margin-bottom: 40px;
+}
+
+/* Button Styles */
+.btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+button {
+    font-size: 16px;
+    padding: 12px 24px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Quiz Container */
+#quiz {
+    margin: 20px 0;
+    padding: 25px;
+    background-color: white; /* Slightly lighter than background */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#problem {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#timer {
+    font-size: 20px;
+    color: #fa4e4e; /* Red for timer */
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#answer {
+    font-size: 18px;
+    padding: 10px;
+    width: 250px;
+    border: 2px solid #444; /* Dark border */
+    border-radius: 8px;
+    margin-right: 10px;
+    text-align: center;
+    background-color: #00204a; /* Match quiz background */
+    color: #e0e0e0; /* Light text */
+    transition: border-color 0.3s ease;
+}
+
+#answer:focus {
+    border-color: #00204a; /* Green border on focus */
+    outline: none;
+}
+
+/* Results Container */
+#results {
+    display: none;
+    margin-top: 20px;
+    padding: 25px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#results h2 {
+    color: #00204a;
+    margin-bottom: 15px;
+}
+
+#results p {
+    font-size: 18px;
+    margin: 10px 0;
+    /* color: #e0e0e0; */
+}
+
+#submit {
+    color: white;
+    background-color: #00204a;
+}
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #777; /* Subtle gray for footer */
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    #problem {
+        font-size: 24px;
+    }
+
+    #answer {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
