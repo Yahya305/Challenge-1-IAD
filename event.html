@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Events</title>
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        .container {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .box {
+            color: black;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            width: 45%;  
+            text-align: center;
+            margin: 5px;
+        }
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+        }
+        .status {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Events page</h1>
+    <section id="event">
+        <div class="event">
+            <h2>Problem Statement</h2>
+            <p>Generate 10 random math problems, Track how long the user takes to answer each problem. Penalise incorrect answers with time penalties. After all problems, calculate and display: Total correct answers. Total time taken (with penalties). Average time per problem. Use a dynamic timer for each problem, giving users a fixed amount of time (e.g., 5 seconds) to respond, after which they automatically lose the problem..</p>
+        </div>
+        <div class="event">
+            <h2>Implementing Time-Based Logic in Our Math Quiz Challenge</h2>
+            <h3>What we built</h3>
+            <p>In our challenge, we developed an interactive Math Quiz Application that tests users’ problem-solving speed and accuracy. The quiz presents 10 randomly generated math problems, each with a strict time limit. Users must answer before the timer runs out, or the system automatically proceeds to the next question.
+            To achieve this functionality, we needed a real-time countdown mechanism and automated response handling, ensuring a fair and engaging experience.    
+            </p>
+        </div>
+        <div class="event">
+            <h3>Our Approach</h3>
+            <p>To implement the time-based logic efficiently, we focused on two key challenges:</p>
+                <ul>
+                <li>Tracking time for each question – Every question needed a 5-second countdown to encourage quick thinking.</li>
+                <li>Handling unanswered questions – If the user failed to respond in time, the system should automatically move to the next problem and penalize the user.</li></ul>
+               <p> 
+                To solve these challenges, we leveraged JavaScript’s built-in setTimeout and setInterval functions.
+               </p>
+        </div>
+        <div class="event">
+            <h3>How we used <code>setTimeout</code> and <code>setInterval</code></h3>
+            <h4>Countdown Timer <code>(setInterval)</code></h4>
+                <ul>
+                <li>We used setInterval to update the countdown timer every second.</li>
+                <li>This function decreased the remaining time and displayed it to the user.</li>
+                <li>If the timer reached zero, the system automatically moved to the next question.</li></ul>
+                <h4>Auto-Timeout <code>(setTimeout)</code></h4>
+                <ul>
+                <li>setTimeout was implemented to trigger automatic submission after 5 seconds.</li>
+                <li>If the user didn’t answer within the given time, the system marked the question as incorrect and advanced to the next one.</li>
+                <li>This ensured that the quiz continued without requiring user interaction.</li></ul>
+        </div>
+    </section>
+    <div class="container">
+        <div class="box" id="countdownBox">
+            <h3>Countdown Timer (setInterval)</h3>
+            <div class="timer" id="countdown">5</div>
+            <div class="status" id="countdownStatus">Counting down...</div>
+        </div>
+        
+        <div class="box" id="timeoutBox">
+            <h3>Auto-Submission (setTimeout)</h3>
+            <div class="status" id="timeoutStatus">Waiting for answer...</div>
+        </div>
+    </div>
+
+    <script>
+        let timerInterval;
+        let timeLeft = 5;
+        let countdownEl = document.getElementById("countdown");
+        let countdownStatus = document.getElementById("countdownStatus");
+        let timeoutStatus = document.getElementById("timeoutStatus");
+        let box1 = document.getElementById("box1");
+
+        function startCountdown() {
+          
+            function resetCountdown() {
+                timeLeft = 5;
+                countdownEl.textContent = timeLeft;
+                countdownStatus.textContent = "Counting down...";
+                timeoutStatus.textContent = "Waiting for answer...";
+
+                
+                if (timerInterval) clearInterval(timerInterval); 
+                timerInterval = setInterval(() => {
+                    timeLeft--;
+                    countdownEl.textContent = timeLeft;
+                    countdownStatus.textContent = `Time left: ${timeLeft}s`;
+
+                    if (timeLeft <= 0) {
+                        clearInterval(timerInterval); 
+                        countdownStatus.textContent = "Time's up!";
+                        timeoutStatus.textContent = "Time's up! Moving to next question...";
+
+                        
+                        setTimeout(resetCountdown, 1000); 
+                    }
+                }, 1000);
+            }
+
+            resetCountdown(); 
+        }
+        startCountdown(); 
+    </script>
+</body>
+</html>
