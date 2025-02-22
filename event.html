@@ -1,124 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Events</title>
-    <link rel="stylesheet" href="./styles.css">
-    <style>
-        .container {
-            margin-top: 50px;
-            display: flex;
-            justify-content: space-between;
-        }
-        .box {
-            color: black;
-            padding: 20px;
-            background-color: white;
-            border: 2px solid #333;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-            width: 45%;  
-            text-align: center;
-            margin: 5px;
-        }
-        .timer {
-            font-size: 24px;
-            font-weight: bold;
-            color: red;
-        }
-        .status {
-            font-size: 18px;
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Events page</h1>
-    <section id="event">
-        <div class="event">
-            <h2>Problem Statement</h2>
-            <p>Generate 10 random math problems, Track how long the user takes to answer each problem. Penalise incorrect answers with time penalties. After all problems, calculate and display: Total correct answers. Total time taken (with penalties). Average time per problem. Use a dynamic timer for each problem, giving users a fixed amount of time (e.g., 5 seconds) to respond, after which they automatically lose the problem..</p>
+    <head>
+        <title>Events</title>
+        <link href="css/style.css" rel="stylesheet" />
+        <!-- bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+        <!-- fonts style -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+            rel="stylesheet"
+        />
+        <link href="css/responsive.css" rel="stylesheet" />
+
+        <style>
+            .container {
+                margin-top: 50px;
+                display: flex;
+                justify-content: space-between;
+            }
+            .box {
+                color: black;
+                padding: 20px;
+                background-color: white;
+                border: 2px solid #333;
+                border-radius: 10px;
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+                width: 45%;
+                text-align: center;
+                margin: 5px;
+            }
+            .timer {
+                font-size: 24px;
+                font-weight: bold;
+                color: red;
+            }
+            .status {
+                font-size: 18px;
+                margin-top: 10px;
+            }
+            #event {
+                background: linear-gradient(130deg, #231a6f, #0f054c);
+                color: white;
+            }
+        </style>
+    </head>
+    <body class="sub_page">
+        <div class="hero_area">
+            <div class="hero_bg_box">
+                <div class="bg_img_box">
+                    <img src="images/hero-bg.png" alt="" />
+                </div>
+            </div>
+
+            <!-- header section strats -->
+            <header class="header_section">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg custom_nav-container">
+                        <a class="navbar-brand" href="index.html">
+                            <span> IAD Group 9 </span>
+                        </a>
+
+                        <button
+                            class="navbar-toggler"
+                            type="button"
+                            data-toggle="collapse"
+                            data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                        >
+                            <span class=""> </span>
+                        </button>
+
+                        <div
+                            class="collapse navbar-collapse"
+                            id="navbarSupportedContent"
+                        >
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html"
+                                        >Home
+                                    </a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="game.html">
+                                        Quiz
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="service.html"
+                                        >Services</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="why.html"
+                                        >Why Us</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="team.html"
+                                        >Team</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <i
+                                            class="fa fa-user"
+                                            aria-hidden="true"
+                                        ></i>
+                                        Login</a
+                                    >
+                                </li>
+                                <form class="form-inline">
+                                    <button
+                                        class="btn my-2 my-sm-0 nav_search-btn"
+                                        type="submit"
+                                    >
+                                        <i
+                                            class="fa fa-search"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </button>
+                                </form>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+            <!-- end header section -->
         </div>
-        <div class="event">
-            <h2>Implementing Time-Based Logic in Our Math Quiz Challenge</h2>
-            <h3>What we built</h3>
-            <p>In our challenge, we developed an interactive Math Quiz Application that tests users’ problem-solving speed and accuracy. The quiz presents 10 randomly generated math problems, each with a strict time limit. Users must answer before the timer runs out, or the system automatically proceeds to the next question.
-            To achieve this functionality, we needed a real-time countdown mechanism and automated response handling, ensuring a fair and engaging experience.    
-            </p>
-        </div>
-        <div class="event">
-            <h3>Our Approach</h3>
-            <p>To implement the time-based logic efficiently, we focused on two key challenges:</p>
+
+        <section id="event">
+            <h1>Events page</h1>
+            <div class="event">
+                <h2>Problem Statement</h2>
+                <p>
+                    Generate 10 random math problems, Track how long the user
+                    takes to answer each problem. Penalise incorrect answers
+                    with time penalties. After all problems, calculate and
+                    display: Total correct answers. Total time taken (with
+                    penalties). Average time per problem. Use a dynamic timer
+                    for each problem, giving users a fixed amount of time (e.g.,
+                    5 seconds) to respond, after which they automatically lose
+                    the problem..
+                </p>
+            </div>
+            <div class="event">
+                <h2>
+                    Implementing Time-Based Logic in Our Math Quiz Challenge
+                </h2>
+                <h3>What we built</h3>
+                <p>
+                    In our challenge, we developed an interactive Math Quiz
+                    Application that tests users’ problem-solving speed and
+                    accuracy. The quiz presents 10 randomly generated math
+                    problems, each with a strict time limit. Users must answer
+                    before the timer runs out, or the system automatically
+                    proceeds to the next question. To achieve this
+                    functionality, we needed a real-time countdown mechanism and
+                    automated response handling, ensuring a fair and engaging
+                    experience.
+                </p>
+            </div>
+            <div class="event">
+                <h3>Our Approach</h3>
+                <p>
+                    To implement the time-based logic efficiently, we focused on
+                    two key challenges:
+                </p>
                 <ul>
-                <li>Tracking time for each question – Every question needed a 5-second countdown to encourage quick thinking.</li>
-                <li>Handling unanswered questions – If the user failed to respond in time, the system should automatically move to the next problem and penalize the user.</li></ul>
-               <p> 
-                To solve these challenges, we leveraged JavaScript’s built-in setTimeout and setInterval functions.
-               </p>
-        </div>
-        <div class="event">
-            <h3>How we used <code>setTimeout</code> and <code>setInterval</code></h3>
-            <h4>Countdown Timer <code>(setInterval)</code></h4>
+                    <li>
+                        Tracking time for each question – Every question needed
+                        a 5-second countdown to encourage quick thinking.
+                    </li>
+                    <li>
+                        Handling unanswered questions – If the user failed to
+                        respond in time, the system should automatically move to
+                        the next problem and penalize the user.
+                    </li>
+                </ul>
+                <p>
+                    To solve these challenges, we leveraged JavaScript’s
+                    built-in setTimeout and setInterval functions.
+                </p>
+            </div>
+            <div class="event">
+                <h3>
+                    How we used <code>setTimeout</code> and
+                    <code>setInterval</code>
+                </h3>
+                <h4>Countdown Timer <code>(setInterval)</code></h4>
                 <ul>
-                <li>We used setInterval to update the countdown timer every second.</li>
-                <li>This function decreased the remaining time and displayed it to the user.</li>
-                <li>If the timer reached zero, the system automatically moved to the next question.</li></ul>
+                    <li>
+                        We used setInterval to update the countdown timer every
+                        second.
+                    </li>
+                    <li>
+                        This function decreased the remaining time and displayed
+                        it to the user.
+                    </li>
+                    <li>
+                        If the timer reached zero, the system automatically
+                        moved to the next question.
+                    </li>
+                </ul>
                 <h4>Auto-Timeout <code>(setTimeout)</code></h4>
                 <ul>
-                <li>setTimeout was implemented to trigger automatic submission after 5 seconds.</li>
-                <li>If the user didn’t answer within the given time, the system marked the question as incorrect and advanced to the next one.</li>
-                <li>This ensured that the quiz continued without requiring user interaction.</li></ul>
-        </div>
-    </section>
-    <div class="container">
-        <div class="box" id="countdownBox">
-            <h3>Countdown Timer (setInterval)</h3>
-            <div class="timer" id="countdown">5</div>
-            <div class="status" id="countdownStatus">Counting down...</div>
-        </div>
-        
-        <div class="box" id="timeoutBox">
-            <h3>Auto-Submission (setTimeout)</h3>
-            <div class="status" id="timeoutStatus">Waiting for answer...</div>
-        </div>
-    </div>
+                    <li>
+                        setTimeout was implemented to trigger automatic
+                        submission after 5 seconds.
+                    </li>
+                    <li>
+                        If the user didn’t answer within the given time, the
+                        system marked the question as incorrect and advanced to
+                        the next one.
+                    </li>
+                    <li>
+                        This ensured that the quiz continued without requiring
+                        user interaction.
+                    </li>
+                </ul>
+            </div>
 
-    <script>
-        let timerInterval;
-        let timeLeft = 5;
-        let countdownEl = document.getElementById("countdown");
-        let countdownStatus = document.getElementById("countdownStatus");
-        let timeoutStatus = document.getElementById("timeoutStatus");
-        let box1 = document.getElementById("box1");
+            <div class="container pb-5">
+                <div class="box" id="countdownBox">
+                    <h3>Countdown Timer (setInterval)</h3>
+                    <div class="timer" id="countdown">5</div>
+                    <div class="status" id="countdownStatus">
+                        Counting down...
+                    </div>
+                </div>
 
-        function startCountdown() {
-          
-            function resetCountdown() {
-                timeLeft = 5;
-                countdownEl.textContent = timeLeft;
-                countdownStatus.textContent = "Counting down...";
-                timeoutStatus.textContent = "Waiting for answer...";
+                <div class="box" id="timeoutBox">
+                    <h3>Auto-Submission (setTimeout)</h3>
+                    <div class="status" id="timeoutStatus">
+                        Waiting for answer...
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                
-                if (timerInterval) clearInterval(timerInterval); 
-                timerInterval = setInterval(() => {
-                    timeLeft--;
+        <section class="info_section layout_padding2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 info_col">
+                        <div class="info_contact">
+                            <h4>Address</h4>
+                            <div class="contact_link_box">
+                                <a href="">
+                                    <i
+                                        class="fa fa-map-marker"
+                                        aria-hidden="true"
+                                    ></i>
+                                    <span> Location </span>
+                                </a>
+                                <a href="">
+                                    <i
+                                        class="fa fa-phone"
+                                        aria-hidden="true"
+                                    ></i>
+                                    <span> Call +01 1234567890 </span>
+                                </a>
+                                <a href="">
+                                    <i
+                                        class="fa fa-envelope"
+                                        aria-hidden="true"
+                                    ></i>
+                                    <span> demo@gmail.com </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="info_social">
+                            <a href="">
+                                <i
+                                    class="fa fa-facebook"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i
+                                    class="fa fa-linkedin"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                            <a href="">
+                                <i
+                                    class="fa fa-instagram"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 info_col">
+                        <div class="info_detail">
+                            <h4>Info</h4>
+                            <p>
+                                necessary, making this the first true generator
+                                on the Internet. It uses a dictionary of over
+                                200 Latin words, combined with a handful
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-2 mx-auto info_col">
+                        <div class="info_link_box">
+                            <h4>Links</h4>
+                            <div class="info_links">
+                                <a class="active" href="index.html"> Home </a>
+                                <a class="" href="about.html"> About </a>
+                                <a class="" href="service.html"> Services </a>
+                                <a class="" href="why.html"> Why Us </a>
+                                <a class="" href="team.html"> Team </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 info_col">
+                        <h4>Subscribe</h4>
+                        <form action="#">
+                            <input type="text" placeholder="Enter email" />
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end info section -->
+
+        <!-- footer section -->
+        <section class="footer_section">
+            <div class="">
+                <p>
+                    &copy; <span id="displayYear"></span> Math Quiz. All Rights
+                    Reserved By
+                    <a href="https://html.design/">IAD Group 9</a>
+                </p>
+            </div>
+        </section>
+        <!-- footer section -->
+
+        <script>
+            let timerInterval;
+            let timeLeft = 5;
+            let countdownEl = document.getElementById("countdown");
+            let countdownStatus = document.getElementById("countdownStatus");
+            let timeoutStatus = document.getElementById("timeoutStatus");
+            let box1 = document.getElementById("box1");
+
+            function startCountdown() {
+                function resetCountdown() {
+                    timeLeft = 5;
                     countdownEl.textContent = timeLeft;
-                    countdownStatus.textContent = `Time left: ${timeLeft}s`;
+                    countdownStatus.textContent = "Counting down...";
+                    timeoutStatus.textContent = "Waiting for answer...";
 
-                    if (timeLeft <= 0) {
-                        clearInterval(timerInterval); 
-                        countdownStatus.textContent = "Time's up!";
-                        timeoutStatus.textContent = "Time's up! Moving to next question...";
+                    if (timerInterval) clearInterval(timerInterval);
+                    timerInterval = setInterval(() => {
+                        timeLeft--;
+                        countdownEl.textContent = timeLeft;
+                        countdownStatus.textContent = `Time left: ${timeLeft}s`;
 
-                        
-                        setTimeout(resetCountdown, 1000); 
-                    }
-                }, 1000);
+                        if (timeLeft <= 0) {
+                            clearInterval(timerInterval);
+                            countdownStatus.textContent = "Time's up!";
+                            timeoutStatus.textContent =
+                                "Time's up! Moving to next question...";
+
+                            setTimeout(resetCountdown, 1000);
+                        }
+                    }, 1000);
+                }
+
+                resetCountdown();
             }
-
-            resetCountdown(); 
-        }
-        startCountdown(); 
-    </script>
-</body>
+            startCountdown();
+        </script>
+    </body>
 </html>
