@@ -559,9 +559,11 @@ a:focus {
           align-items: center;
 }
 
-.why_section .box .img-box img {
-  width: 55px;
-  height: auto;
+.why_section .box .img-box h1 {
+  font-size: 56px;
+  margin: 0px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
   fill: #00204a;
 }
 
