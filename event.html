@@ -31,30 +31,31 @@
                 box-shadow: 0px 5px 18px rgba(0, 0, 0, 0.15);
                 width: 48%;
                 text-align: center;
-                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out ;
+                transition: transform 0.3s ease-in-out,
+                    box-shadow 0.3s ease-in-out;
                 margin: 5px;
                 position: relative;
                 overflow: hidden;
             }
-            .box:hover{
+            .box:hover {
                 transform: translateY(-8px) scale(1.02);
                 box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.25);
             }
-            .box::before{
-                content:"";
+            .box::before {
+                content: "";
                 position: absolute;
                 top: -3px;
                 left: -3px;
-                right:-3px;
-                bottom:-3px;
+                right: -3px;
+                bottom: -3px;
                 border-radius: 18px;
-                background:linear-gradient(120deg, #0052D4, #65C7F7, #9CECFB);
+                background: linear-gradient(120deg, #0052d4, #65c7f7, #9cecfb);
                 z-index: -1;
                 opacity: 0;
                 transition: opacity 0.4s ease-in-out;
             }
-            .box:hover::before{
-                opacity:1;
+            .box:hover::before {
+                opacity: 1;
             }
             .timer {
                 font-size: 24px;
@@ -79,8 +80,8 @@
                 text-align: center;
                 border-radius: 10px;
             }
-            .event{
-                background: rgba(255,255,255,0.1);
+            .event {
+                background: rgba(255, 255, 255, 0.1);
                 padding: 20px;
                 border-radius: 10px;
                 margin: 20px auto;
@@ -88,27 +89,28 @@
                 max-width: 800px;
                 text-align: left;
             }
-            h1, h2, h3{
+            h1,
+            h2,
+            h3 {
                 font-weight: 500;
                 margin-bottom: 15px;
             }
-            ul{
+            ul {
                 padding-left: 20px;
             }
-            ul li{
+            ul li {
                 font-size: 16px;
                 margin-bottom: 10px;
             }
-            @media (max-width: 768px){
-                .container{
+            @media (max-width: 768px) {
+                .container {
                     flex-direction: column;
-                    align-items:center;
+                    align-items: center;
                 }
-                .box{
+                .box {
                     width: 90%;
                 }
             }
-
         </style>
     </head>
     <body class="sub_page">
@@ -124,7 +126,7 @@
                 <div class="container-fluid">
                     <nav class="navbar navbar-expand-lg custom_nav-container">
                         <a class="navbar-brand" href="index.html">
-                            <span> IAD Group 9 </span>
+                            <span> IAD </span>
                         </a>
 
                         <button
@@ -149,20 +151,30 @@
                                         >Home
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="game.html"
+                                        >Game
+                                    </a>
+                                </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="game.html">
-                                        Quiz
+                                    <a class="nav-link" href="event.html">
+                                        JavaScript Events
                                         <span class="sr-only">(current)</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="service.html"
-                                        >Services</a
+                                    <a class="nav-link" href="about.html">
+                                        About</a
                                     >
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link" href="service.html"
+                                        >Tech Stack
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="why.html"
-                                        >Why Us</a
+                                        >Questions</a
                                     >
                                 </li>
                                 <li class="nav-item">
@@ -170,26 +182,6 @@
                                         >Team</a
                                     >
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <i
-                                            class="fa fa-user"
-                                            aria-hidden="true"
-                                        ></i>
-                                        Login</a
-                                    >
-                                </li>
-                                <form class="form-inline">
-                                    <button
-                                        class="btn my-2 my-sm-0 nav_search-btn"
-                                        type="submit"
-                                    >
-                                        <i
-                                            class="fa fa-search"
-                                            aria-hidden="true"
-                                        ></i>
-                                    </button>
-                                </form>
                             </ul>
                         </div>
                     </nav>
@@ -307,94 +299,6 @@
                 </div>
             </div>
         </section>
-
-        <section class="info_section layout_padding2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-3 info_col">
-                        <div class="info_contact">
-                            <h4>Address</h4>
-                            <div class="contact_link_box">
-                                <a href="">
-                                    <i
-                                        class="fa fa-map-marker"
-                                        aria-hidden="true"
-                                    ></i>
-                                    <span> Location </span>
-                                </a>
-                                <a href="">
-                                    <i
-                                        class="fa fa-phone"
-                                        aria-hidden="true"
-                                    ></i>
-                                    <span> Call +01 1234567890 </span>
-                                </a>
-                                <a href="">
-                                    <i
-                                        class="fa fa-envelope"
-                                        aria-hidden="true"
-                                    ></i>
-                                    <span> demo@gmail.com </span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="info_social">
-                            <a href="">
-                                <i
-                                    class="fa fa-facebook"
-                                    aria-hidden="true"
-                                ></i>
-                            </a>
-                            <a href="">
-                                <i class="fa fa-twitter" aria-hidden="true"></i>
-                            </a>
-                            <a href="">
-                                <i
-                                    class="fa fa-linkedin"
-                                    aria-hidden="true"
-                                ></i>
-                            </a>
-                            <a href="">
-                                <i
-                                    class="fa fa-instagram"
-                                    aria-hidden="true"
-                                ></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 info_col">
-                        <div class="info_detail">
-                            <h4>Info</h4>
-                            <p>
-                                necessary, making this the first true generator
-                                on the Internet. It uses a dictionary of over
-                                200 Latin words, combined with a handful
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-2 mx-auto info_col">
-                        <div class="info_link_box">
-                            <h4>Links</h4>
-                            <div class="info_links">
-                                <a class="active" href="index.html"> Home </a>
-                                <a class="" href="about.html"> About </a>
-                                <a class="" href="service.html"> Services </a>
-                                <a class="" href="why.html"> Why Us </a>
-                                <a class="" href="team.html"> Team </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 info_col">
-                        <h4>Subscribe</h4>
-                        <form action="#">
-                            <input type="text" placeholder="Enter email" />
-                            <button type="submit">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end info section -->
 
         <!-- footer section -->
         <!-- footer section -->
