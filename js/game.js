@@ -102,6 +102,13 @@ function startProblem() {
 
     const handleSubmit = () => {
         const userAnswer = parseInt(answerElement.value);
+        if (isNaN(userAnswer)) {
+            answerElement.style.border = '2px solid red';
+            answerElement.placeholder = 'Numeric Data please';
+          } else {
+            answerElement.style.border = '2px solid green';
+            answerElement.placeholder = 'Enter a Number';
+          }
         const isCorrect = userAnswer === problem.answer;
 
         if (!isCorrect) {
