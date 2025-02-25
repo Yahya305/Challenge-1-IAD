@@ -1,13 +1,13 @@
-const quizElement = document.getElementById("quiz");
-const problemElement = document.getElementById("problem");
-const timerElement = document.getElementById("timer");
-const answerElement = document.getElementById("answer");
-const submitButton = document.getElementById("submit");
-const startButton = document.getElementById("start");
-const resultsElement = document.getElementById("results");
-const correctSpan = document.getElementById("correct");
-const totalSpan = document.getElementById("total");
-const averageSpan = document.getElementById("average");
+const quizElement = document.getElementById('quiz');
+const problemElement = document.getElementById('problem');
+const timerElement = document.getElementById('timer');
+const answerElement = document.getElementById('answer');
+const submitButton = document.getElementById('submit');
+const startButton = document.getElementById('start');
+const resultsElement = document.getElementById('results');
+const correctSpan = document.getElementById('correct');
+const totalSpan = document.getElementById('total');
+const averageSpan = document.getElementById('average');
 
 let currentProblemIndex = 0;
 let correctCount = 0;
@@ -16,27 +16,27 @@ let penalties = 0;
 let problems = [];
 
 function generateProblem() {
-    const operators = ["+", "-", "*", "/"];
-    const operator = operators[Math.floor(Math.random() * operators.length)];
+    const operators = ['+', '-', '*', '/'];
+    const operator = operators[Math.floor(Math.random() * operators.length)];  
     let num1, num2, answer;
 
     switch (operator) {
-        case "+":
+        case '+':
             num1 = Math.floor(Math.random() * 20) + 1;
             num2 = Math.floor(Math.random() * 20) + 1;
             answer = num1 + num2;
             break;
-        case "-":
+        case '-':
             num1 = Math.floor(Math.random() * 20) + 1;
-            num2 = Math.floor(Math.random() * num1) + 1;
+            num2 = Math.floor(Math.random() * 20) + 1;
             answer = num1 - num2;
             break;
-        case "*":
+        case '*':
             num1 = Math.floor(Math.random() * 10) + 1;
-            num2 = Math.floor(Math.random() * 10) + 1;
+            num2 = Math.floor(Math.random() * 10) + 1; 
             answer = num1 * num2;
             break;
-        case "/":
+        case '/':
             num2 = Math.floor(Math.random() * 10) + 1; // Divisor (1 to 10)
             answer = Math.floor(Math.random() * 10) + 1; // Quotient (1 to 10)
             num1 = num2 * answer; // Dividend
@@ -50,6 +50,9 @@ function generateProblems() {
     return Array.from({ length: 10 }, () => generateProblem());
 }
 
+
+
+
 function startProblem() {
     if (currentProblemIndex >= 10) {
         showResults();
@@ -58,7 +61,7 @@ function startProblem() {
 
     const problem = problems[currentProblemIndex];
     problemElement.textContent = `${problem.num1} ${problem.operator} ${problem.num2} = ?`;
-    answerElement.value = "";
+    answerElement.value = '';
     answerElement.focus();
 
     let timeLeft = 5;
@@ -83,7 +86,7 @@ function startProblem() {
         timerInterval = setInterval(() => {
             timeLeft--;
             updateTimerDisplay();
-
+            
             if (timeLeft <= 0) {
                 clearAllTimers();
                 handleAnswer(null, 5); // Max time per problem
@@ -103,18 +106,18 @@ function startProblem() {
     const handleSubmit = () => {
         const userAnswer = parseInt(answerElement.value);
         if (isNaN(userAnswer)) {
-            answerElement.style.border = '2px solid red';
-            answerElement.placeholder = 'Numeric Data please';
-          } else {
-            answerElement.style.border = '2px solid green';
-            answerElement.placeholder = 'Enter a Number';
-          }
+            answerElement.style.border = "2px solid red"
+            answerElement.placeholder = "Numeric Data please"
+        } else {
+            answerElement.style.border = "2px solid green"
+            answerElement.placeholder = "Enter a Number"
+        }
         const isCorrect = userAnswer === problem.answer;
 
         if (!isCorrect) {
             // Apply penalty
             timeLeft -= 2;
-
+            
             if (timeLeft <= 0) {
                 // Immediate timeout if no time left
                 clearAllTimers();
@@ -122,7 +125,7 @@ function startProblem() {
             } else {
                 // Restart timers with new remaining time
                 startTimers();
-                answerElement.value = "";
+                answerElement.value = '';
                 answerElement.focus();
             }
         } else {
@@ -135,13 +138,14 @@ function startProblem() {
 
     submitButton.onclick = handleSubmit;
     answerElement.onkeypress = (e) => {
-        if (e.key === "Enter") handleSubmit();
+        if (e.key === 'Enter') handleSubmit();
     };
 }
 
 function handleAnswer(userAnswer, timeTaken) {
     const problem = problems[currentProblemIndex];
     const isCorrect = userAnswer === problem?.answer;
+     
 
     if (isCorrect) {
         correctCount++;
@@ -149,7 +153,7 @@ function handleAnswer(userAnswer, timeTaken) {
         penalties++;
     }
 
-    totalTime += Math.min(timeTaken, 5);
+    totalTime += Math.min(timeTaken, 5);      
     currentProblemIndex++;
 
     if (currentProblemIndex < 10) {
@@ -160,8 +164,8 @@ function handleAnswer(userAnswer, timeTaken) {
 }
 
 function showResults() {
-    quizElement.style.display = "none";
-    resultsElement.style.display = "block";
+    quizElement.style.display = 'none';
+    resultsElement.style.display = 'block';
 
     const totalWithPenalties = totalTime + penalties * 2;
     const average = totalWithPenalties / 10;
@@ -178,9 +182,18 @@ startButton.onclick = () => {
     totalTime = 0;
     penalties = 0;
 
-    startButton.style.display = "none";
-    quizElement.style.display = "block";
-    resultsElement.style.display = "none";
+    startButton.style.display = 'none';
+    quizElement.style.display = 'block';
+    resultsElement.style.display = 'none';
 
     startProblem();
 };
+
+
+
+
+
+
+
+
+
